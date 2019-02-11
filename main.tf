@@ -20,7 +20,7 @@ resource "ibm_network_vlan" "lb_vlan_private_south" {
 
 resource "ibm_compute_vm_instance" "vm_instances_east" {
   count = "${var.app_server_count}"
-  hostname = "app-${count.index+1}"
+  hostname = "appeast-${count.index+1}"
   domain = "${var.domain}"
   os_reference_code = "UBUNTU_14_64"
   datacenter = "${var.datacenter_east}"
@@ -40,7 +40,7 @@ resource "ibm_compute_vm_instance" "vm_instances_east" {
 
 resource "ibm_compute_vm_instance" "vm_instances_south" {
   count = "${var.app_server_count}"
-  hostname = "app-${count.index+1}"
+  hostname = "appsouth-${count.index+1}"
   domain = "${var.domain}"
   os_reference_code = "UBUNTU_14_64"
   datacenter = "${var.datacenter_south}"
